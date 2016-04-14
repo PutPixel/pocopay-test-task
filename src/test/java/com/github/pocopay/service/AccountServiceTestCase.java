@@ -110,4 +110,15 @@ public class AccountServiceTestCase extends AbstractTest {
         Account to = accountService.find(toId);
         accountService.transfer(from, to, amount);
     }
+
+    @Test(expected = NoResultException.class)
+    public void tarnsfer_money_for_same_account() {
+        Long fromId = new Long(1);
+        Long toId = new Long(1);
+        BigDecimal amount = new BigDecimal("4.00");
+
+        Account from = accountService.find(fromId);
+        Account to = accountService.find(toId);
+        accountService.transfer(from, to, amount);
+    }
 }

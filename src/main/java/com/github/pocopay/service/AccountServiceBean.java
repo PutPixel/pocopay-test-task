@@ -113,6 +113,13 @@ public class AccountServiceBean implements AccountService {
             throw new NoResultException("Not enough money on source account");
         }
 
+        if (from.equals(to)) {
+            logger.error(
+                    "Attempted to transfer money for same account");
+            logger.info("< transfer from {}, to {}, amount {}", from.getId(), to.getId(), amount);
+            throw new NoResultException("Transfer for same account is not allowed");
+        }
+
         from.setAmount(from.getAmount().subtract(amount));
         to.setAmount(to.getAmount().add(amount));
 
