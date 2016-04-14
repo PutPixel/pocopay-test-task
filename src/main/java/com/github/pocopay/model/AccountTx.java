@@ -53,4 +53,9 @@ public class AccountTx extends TransactionalEntity {
         this.date = date;
     }
 
+    @Override
+    public String toString() {
+        return "AccountTx [fromAccountId=" + fromAccountId + ", toAccountId=" + toAccountId + ", date=" + date + ", amount=" + amount + "]";
+    }
+
 }

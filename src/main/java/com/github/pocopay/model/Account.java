@@ -30,4 +30,9 @@ public class Account extends TransactionalEntity {
         this.name = name;
     }
 
+    @Override
+    public String toString() {
+        return "Account [name=" + name + ", amount=" + amount + "]";
+    }
+
 }
